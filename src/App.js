@@ -12,6 +12,7 @@ library.add(faCheckSquare, faCoffee, faHeart)
 
 class App extends Component {
 state={
+  id:"",
   input:"",
   dishName:"",
   dishImage:"",
@@ -57,7 +58,10 @@ state={
   ingredientMeasure20:"",
   mealCategory:"",
   mealArea:"",
-  mealRecipe:""
+  mealRecipe:"",
+  mess:true,
+  isMeal:true,
+  show : false,
 }
 
 changeHandler = (event) =>{
@@ -66,18 +70,70 @@ changeHandler = (event) =>{
     })
   }
 
+
+
+
+render(){
+
+  return(
+    <div>
+      <Header />
+    <Search buttonTitle="Get Ingredients" click = {this.call.bind(this)} change = {this.changeHandler} />
+    {this.state.mess ? (<p className = "wcMessage">Type a Dish Name to Search for it's ingredients</p>):(<p></p>)}
+
+
+    {this.state.isMeal && this.state.show ? (
+  <Panel heading={this.state.dishName} dishimg={this.state.dishImage} mealarea={this.state.mealArea}
+    mealcat={this.state.mealCategory} reci={this.state.mealRecipe}
+    i1 = {this.state.ingredient1} i2 = {this.state.ingredient2}
+    i3 = {this.state.ingredient3} i4 = {this.state.ingredient4}
+    i5 = {this.state.ingredient5} i6 = {this.state.ingredient6}
+    i7 = {this.state.ingredient7} i8 = {this.state.ingredient8}
+    i9 = {this.state.ingredient9} i10 = {this.state.ingredient10}
+    i11 = {this.state.ingredient11} i12 = {this.state.ingredient12}
+    i13 = {this.state.ingredient13} i14 = {this.state.ingredient14}
+    i15 = {this.state.ingredient15} i16 = {this.state.ingredient16}
+    i17 = {this.state.ingredient17} i18 = {this.state.ingredient18}
+    i19 = {this.state.ingredient19} i20 = {this.state.ingredient20}
+
+    imeasure1 = {this.state.ingredientMeasure1} imeasure2 = {this.state.ingredientMeasure2}
+    imeasure3 = {this.state.ingredientMeasure3} imeasure4 = {this.state.ingredientMeasure4}
+    imeasure5 = {this.state.ingredientMeasure5} imeasure6 = {this.state.ingredientMeasure6}
+    imeasure7 = {this.state.ingredientMeasure7} imeasure8 = {this.state.ingredientMeasure8}
+    imeasure9 = {this.state.ingredientMeasure9} imeasure10 = {this.state.ingredientMeasure10}
+    imeasure11 = {this.state.ingredientMeasure11} imeasure12 = {this.state.ingredientMeasure12}
+    imeasure13 = {this.state.ingredientMeasure13} imeasure14 = {this.state.ingredientMeasure14}
+    imeasure15 = {this.state.ingredientMeasure15} imeasure16 = {this.state.ingredientMeasure16}
+    imeasure17 = {this.state.ingredientMeasure17} imeasure18 = {this.state.ingredientMeasure18}
+    imeasure19 = {this.state.ingredientMeasure19} imeasure20 = {this.state.ingredientMeasure20}
+    />):(<p></p>)}
+
+    {this.state.isMeal ? (<p></p>):(<p className = "wcMessage">Not found</p>)}
+    </div>
+);
+
+}
 async call(){
-  var arr = [];
   const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + this.state.input;
   const res = await fetch(url);
   const data = await res.json();
   console.log(data);
+
+  if(data.meals === null){
+    this.setState({
+      isMeal:false
+    })
+  }
+
   this.setState({
     dishName : data.meals[0].strMeal,
     mealRecipe : data.meals[0].strInstructions,
     dishImage : data.meals[0].strMealThumb,
     mealArea : data.meals[0].strArea,
     mealCategory : data.meals[0].strCategory,
+    id:true,
+    mess:false,
+    show:true,
     ingredient1:data.meals[0].strIngredient1 + ' ---- ',
     ingredient2:data.meals[0].strIngredient2 + ' ---- ',
     ingredient3:data.meals[0].strIngredient3 + ' ---- ',
@@ -124,40 +180,8 @@ async call(){
 
 }
 
-render(){
-  return(
-  <div>
-  <Header />
-  <Search buttonTitle="Get Ingredients" click = {this.call.bind(this)} change = {this.changeHandler} />
-  <Panel heading={this.state.dishName} dishimg={this.state.dishImage} mealarea={this.state.mealArea}
-    mealcat={this.state.mealCategory} reci={this.state.mealRecipe}
-    i1 = {this.state.ingredient1} i2 = {this.state.ingredient2}
-    i3 = {this.state.ingredient3} i4 = {this.state.ingredient4}
-    i5 = {this.state.ingredient5} i6 = {this.state.ingredient6}
-    i7 = {this.state.ingredient7} i8 = {this.state.ingredient8}
-    i9 = {this.state.ingredient9} i10 = {this.state.ingredient10}
-    i11 = {this.state.ingredient11} i12 = {this.state.ingredient12}
-    i13 = {this.state.ingredient13} i14 = {this.state.ingredient14}
-    i15 = {this.state.ingredient15} i16 = {this.state.ingredient16}
-    i17 = {this.state.ingredient17} i18 = {this.state.ingredient18}
-    i19 = {this.state.ingredient19} i20 = {this.state.ingredient20}
-
-    imeasure1 = {this.state.ingredientMeasure1} imeasure2 = {this.state.ingredientMeasure2}
-    imeasure3 = {this.state.ingredientMeasure3} imeasure4 = {this.state.ingredientMeasure4}
-    imeasure5 = {this.state.ingredientMeasure5} imeasure6 = {this.state.ingredientMeasure6}
-    imeasure7 = {this.state.ingredientMeasure7} imeasure8 = {this.state.ingredientMeasure8}
-    imeasure9 = {this.state.ingredientMeasure9} imeasure10 = {this.state.ingredientMeasure10}
-    imeasure11 = {this.state.ingredientMeasure11} imeasure12 = {this.state.ingredientMeasure12}
-    imeasure13 = {this.state.ingredientMeasure13} imeasure14 = {this.state.ingredientMeasure14}
-    imeasure15 = {this.state.ingredientMeasure15} imeasure16 = {this.state.ingredientMeasure16}
-    imeasure17 = {this.state.ingredientMeasure17} imeasure18 = {this.state.ingredientMeasure18}
-    imeasure19 = {this.state.ingredientMeasure19} imeasure20 = {this.state.ingredientMeasure20}
-    ></Panel>
-  </div>
-);
-
 }
-}
+
 
 
 export default App;
