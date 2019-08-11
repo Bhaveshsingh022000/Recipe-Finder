@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import './Panel.css';
 import './Search.js';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheckSquare, faCoffee, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(faCheckSquare, faCoffee, faHeart)
 
 class Panel extends Component{
 
@@ -9,6 +14,7 @@ class Panel extends Component{
       <div className="container">
         <div className="heading">
           <h1>{this.props.heading}</h1>
+          <FontAwesomeIcon icon="heart" className="hea"/>
         </div>
         <div className="discription">
           <p>Category of Meal - {this.props.mealcat}<br/>
