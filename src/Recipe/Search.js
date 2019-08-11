@@ -4,8 +4,8 @@ class Search extends Component{
   render(){
     return(
       <div className="searchField">
-      <input className="search" type = "text" placeholder = "Enter the name of the dish" />
-      <button className="searchButton">Get Ingredients</button>
+      <input className="search" type = "text" placeholder = "Enter the name of the dish" onChange = {this.props.change} />
+      <button className="searchButton" onClick={this.props.click}>{this.props.buttonTitle}</button>
       </div>
     );
   }
