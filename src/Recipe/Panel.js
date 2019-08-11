@@ -8,13 +8,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faCheckSquare, faCoffee, faHeart)
 
 class Panel extends Component{
+  state={
+    color:'black'
+  }
+
+  like = () => {
+    this.setState({
+      color:'red'
+    });
+  }
+
 
   render(){
     return(
       <div className="container">
         <div className="heading">
-          <h1>{this.props.heading}</h1>
-          <FontAwesomeIcon icon="heart" className="hea"/>
+          <h1 className="h"><a href = {this.props.mUrl} style={{textDecoration : 'none'}}>{this.props.heading}</a></h1>
+          <div onClick={this.like}>
+          <FontAwesomeIcon icon="heart" className="hea" style={{ color: this.state.color }} onClick={this.like}/>
+          </div>
         </div>
         <div className="discription">
           <p>Category of Meal - {this.props.mealcat}<br/>

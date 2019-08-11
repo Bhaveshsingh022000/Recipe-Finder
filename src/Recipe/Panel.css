@@ -10,6 +10,10 @@
   background-color: rgb(255, 249, 186);
   color: rgb(138, 103, 137);
 }
+.h{
+  text-decoration: none;
+  color: rgb(138, 103, 137);
+}
 .image{
   position: relative;
   top: 10px;
@@ -17,11 +21,14 @@
   border: 3px solid black;
 }
 .hea{
-  color: black;
   position: absolute;
-  right: 10px;
+  right: 20px;
   top : 15px;
 }
+.hea:hover{
+  cursor: pointer;
+}
+
 .discription{
   width: 580px;
   position: absolute;

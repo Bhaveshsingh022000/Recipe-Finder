@@ -62,6 +62,7 @@ state={
   mess:true,
   isMeal:true,
   show : false,
+  mealUrl : ""
 }
 
 changeHandler = (event) =>{
@@ -83,7 +84,7 @@ render(){
 
 
     {this.state.isMeal && this.state.show ? (
-  <Panel heading={this.state.dishName} dishimg={this.state.dishImage} mealarea={this.state.mealArea}
+  <Panel mUrl = {this.state.mealUrl} heading={this.state.dishName} dishimg={this.state.dishImage} mealarea={this.state.mealArea}
     mealcat={this.state.mealCategory} reci={this.state.mealRecipe}
     i1 = {this.state.ingredient1} i2 = {this.state.ingredient2}
     i3 = {this.state.ingredient3} i4 = {this.state.ingredient4}
@@ -131,6 +132,7 @@ async call(){
     dishImage : data.meals[0].strMealThumb,
     mealArea : data.meals[0].strArea,
     mealCategory : data.meals[0].strCategory,
+    mealUrl : data.meals[0].strSource,
     id:true,
     mess:false,
     show:true,
