@@ -1,6 +1,7 @@
-<h1>Deployed Project Link : https://recipefinderreact.herokuapp.com/
+<h1>Deployed Project Link : https://recipefinderreact.herokuapp.com/ </h1>
 
-
+<br>
+<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
