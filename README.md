@@ -2,7 +2,7 @@
 <br>
 <h2>Technologies Used</h2>
 <ul>
-  <li>ReactJS</li>
+  <li>ReactJs</li>
   <li>RESTAPI's</li>
 </ul>
 <br>
