@@ -1,6 +1,10 @@
 <h1>Deployed Project Link : https://recipefinderreact.herokuapp.com/ </h1>
-
 <br>
+<h2>Technologies Used</h2>
+<ul>
+  <li>ReactJS</li>
+  <li>RESTAPI's</li>
+</ul>
 <br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
