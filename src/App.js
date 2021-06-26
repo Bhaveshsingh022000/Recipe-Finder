@@ -6,7 +6,7 @@ import Panel from './Recipe/Panel';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheckSquare, faCoffee, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+//Changes done by Bhavesh 
 library.add(faCheckSquare, faCoffee, faHeart)
 
 
