@@ -1,4 +1,4 @@
-<h1>Deployed Project Link : https://recipefinderreact.herokuapp.com/ </h1>
+<h1>Deployed Project Link : https://recipe-finder-950c4.web.app/ </h1>
 <br>
 <h2>Technologies Used</h2>
 <ul>
